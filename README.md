@@ -20,11 +20,10 @@ Este proyecto tiene como objetivo implementar y analizar algoritmos de detecció
 
 ## Algoritmos Implementados
 ### Corrección de Errores
-- **Código de Hamming (7,4)**: Implementado en C++
-- **Algoritmo de Viterbi**: Implementado en Python
+- **Código de Hamming**: Implementado en C++
 
 ### Detección de Errores
-- **Checksum de Fletcher**: Implementado en C++
+- **Checksum de Fletcher**: Implementado en Python3 y en JavaScript
 - **CRC-32**: Implementado en Python
 
 ## Instrucciones de Uso
