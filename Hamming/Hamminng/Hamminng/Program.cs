@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-class HammingDecoder
+public class HammingDecoder
 {
-    static string Decode(string message)
+    public static string Decode(string message)
     {
         // Convertir mensaje a un arreglo de ints
         int[] msg = Array.ConvertAll(message.ToCharArray(), c => c - '0');
