@@ -25,6 +25,13 @@ def main():
     # Separar el mensaje y el CRC
     message, received_crc_bin = input_msg[:-32], input_msg[-32:]
     received_crc = int(received_crc_bin, 2)
+
+    # mostrar el mensaje y sy crc32 por separado. 
+    # Código de escape ANSI para el color verde
+    GREEN = "\033[92m"
+    RESET = "\033[0m"
+    
+    print(f"Mensaje: {message}\nCRC32: {GREEN}{received_crc_bin}{RESET}")
     
     calculated_crc = crc32_manual(message)
     
