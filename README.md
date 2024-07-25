@@ -20,7 +20,7 @@ Este proyecto tiene como objetivo implementar y analizar algoritmos de detecció
 
 ## Algoritmos Implementados
 ### Corrección de Errores
-- **Código de Hamming**: Implementado en C++
+- **Código de Hamming**: Implementado en C#
 
 ### Detección de Errores
 - **Checksum de Fletcher**: Implementado en Python3 y en JavaScript
