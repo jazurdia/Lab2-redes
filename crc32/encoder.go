@@ -66,10 +66,4 @@ func main() {
 	encodedMessage := binaryData + crcBinary
 
 	fmt.Println("Encoded message:", encodedMessage)
-
-	// Guardar a archivo
-	err = os.WriteFile("encoded_output.bin", []byte(encodedMessage), 0644)
-	if err != nil {
-		log.Fatalf("Error writing to file: %v", err)
-	}
 }
