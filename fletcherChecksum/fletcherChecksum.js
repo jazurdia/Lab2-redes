@@ -1,7 +1,4 @@
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+const net = require('node:net');
 
 const verificarFletcher16 = (mensaje) => {
     let mensajeEnBytes = [];
@@ -30,12 +27,30 @@ const verificarFletcher16 = (mensaje) => {
     return { esValido: checksum === checksumCalculado, mensajeOriginal };
 };
 
-// Usar readline para ingresar el mensaje
-readline.question('Ingresa tu mensaje en binario: ', mensaje => {
-    const { esValido, mensajeOriginal } = verificarFletcher16(mensaje);
-    console.log(esValido ? "El mensaje es válido." : "El mensaje es inválido o ha sido alterado.");
-    if (esValido) {
-        console.log("El mensaje original es: ", mensajeOriginal);
-    }
-    readline.close();
+// Crear servidor TCP
+const server = net.createServer((socket) => {
+  console.log('Cliente conectado');
+
+  // Evento al recibir datos del cliente
+  socket.on('data', (data) => {
+    console.log('Datos recibidos:', data.toString());
+    console.log('Verificando checksum...');
+    console.log(verificarFletcher16(data.toString()));
+
+  });
+
+  // Evento cuando se cierra la conexión del cliente
+  socket.on('close', () => {
+    console.log('Cliente desconectado');
+  });
+
+  // Manejar errores de conexión
+  socket.on('error', (err) => {
+    console.error('Error en conexión:', err);
+  });
+});
+
+const puerto = 9000;
+server.listen(puerto, () => {
+  console.log(`Servidor TCP iniciado en puerto ${puerto}`);
 });
